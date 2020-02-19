@@ -7,12 +7,7 @@ const ToDoList = ({ toDo }) => {
     return (
       <section className="main" key={item.id}>
         <ul className="todo-list">
-          <li
-            // style={
-            //   toDo[index].completed && { textDecorationLine: "line-through" }
-
-            className={toDo[index].completed ? "completed" : null}
-          >
+          <li className={toDo[index].completed ? "completed" : null}>
             <div className="view">
               <input
                 type="checkbox"

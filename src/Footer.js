@@ -1,12 +1,7 @@
 import React, { useContext } from "react";
 import { DispatchContext } from "./App";
+import { NavLink } from "react-router-dom";
 
-import {
-  // BrowserRouter as Router,
-  NavLink
-  // Route
-  // useRouteMatch
-} from "react-router-dom";
 const Footer = ({ toDo }) => {
   const dispatch = useContext(DispatchContext);
   return (

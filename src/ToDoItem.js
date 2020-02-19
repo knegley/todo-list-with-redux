@@ -1,27 +1,23 @@
 import React from "react";
-import { withRouter, Route } from "react-router-dom";
+import { withRouter, useRouteMatch } from "react-router-dom";
 import ToDoList from "./ToDoList";
 
 const TodoItem = ({ toDo }) => {
+  let homeMatch = useRouteMatch({ path: "/", exact: true });
+  let activeMatch = useRouteMatch("/active");
+  let completedMatch = useRouteMatch("/completed");
+
   return (
     <React.Fragment>
-      <Route exact path="/">
-        <ToDoList toDo={toDo} />
-      </Route>
-      <Route
-        exact
-        path="/active"
-        render={() => (
-          <ToDoList toDo={toDo.filter(value => value.completed === false)} />
-        )}
-      ></Route>
-      <Route
-        exact
-        path="/completed"
-        render={() => (
-          <ToDoList toDo={toDo.filter(value => value.completed === true)} />
-        )}
-      ></Route>
+      {homeMatch && <ToDoList toDo={toDo} />}
+
+      {activeMatch && (
+        <ToDoList toDo={toDo.filter(value => value.completed === false)} />
+      )}
+
+      {completedMatch && (
+        <ToDoList toDo={toDo.filter(value => value.completed === true)} />
+      )}
     </React.Fragment>
   );
 };

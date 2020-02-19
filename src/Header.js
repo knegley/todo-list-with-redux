@@ -1,24 +1,19 @@
 import React, { useContext } from "react";
-import { DispatchContext, SetListContext } from "./App";
+import { DispatchContext } from "./App";
 
 const Header = () => {
-  //   useEffect(() => {
-  //     effect;
-  //     return () => {
-  //       cleanup;
-  //     };
-  //   }, [input]);
   const dispatch = useContext(DispatchContext);
-  const setListText = useContext(SetListContext);
+
   const keyDownHandler = event => {
     if (event.key === "Enter") {
-      console.log("entered");
-      // console.log(event.target.value);
-      // console.log(toDoRef.current.value);
-
-      // console.log(toDo);
-      setListText(event.target.value);
-      dispatch({ type: "add" });
+      // setListText(event.target.value);
+      const addedToDo = {
+        userId: 1,
+        id: Math.floor(Math.random() * 100000),
+        title: event.target.value,
+        completed: false
+      };
+      dispatch({ type: "add", addedToDo });
       event.target.value = "";
     }
   };
@@ -31,7 +26,6 @@ const Header = () => {
           className="new-todo"
           type="text"
           placeholder=" type to do"
-          // onKeyDown={() => dispatch({ type: "add" })}
           autoFocus
           onKeyDown={keyDownHandler}
         ></input>
