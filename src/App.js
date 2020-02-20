@@ -6,6 +6,13 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Header from "./Header";
 import ToDoItem from "./ToDoItem";
 import { useSelector } from "react-redux";
+// import { connect } from "react-redux";
+// import {
+//   addToDo,
+//   toggleToDo,
+//   clearCompletedToDos,
+//   deleteToDo
+// } from "./actions";
 
 // import todosList from "./todos.json";
 
@@ -54,5 +61,17 @@ const App = () => {
     </Router>
   );
 };
+
+// const mapStateToProps = state => {
+//   return { toDo: state.todo };
+// };
+// const mapDispatchtoProps = {
+//   toggleToDo,
+//   deleteToDo,
+//   addToDo,
+//   clearCompletedToDos
+// };
+
+// export default connect(mapStateToProps, mapDispatchtoProps)(App);
 
 export default App;
