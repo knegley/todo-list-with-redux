@@ -1,12 +1,12 @@
 import React /*{ useContext }*/ from "react";
 // import { DispatchContext } from "./App";
-import { ADD_TODO } from "./actions";
+import { addToDo } from "./actions";
 import { useDispatch } from "react-redux";
 
 const Header = () => {
   // const dispatch = useContext(DispatchContext);
-  const dispatch = useDispatch();
 
+  const dispatch = useDispatch();
   const keyDownHandler = event => {
     if ((event.key === "Enter") & (event.target.value.length > 0)) {
       // setListText(event.target.value);
@@ -16,7 +16,8 @@ const Header = () => {
         title: event.target.value,
         completed: false
       };
-      dispatch({ type: ADD_TODO, addedToDo });
+      // dispatch({ type: ADD_TODO, addedToDo });
+      dispatch(addToDo(addedToDo));
       event.target.value = "";
     }
   };

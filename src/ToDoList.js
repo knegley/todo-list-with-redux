@@ -1,6 +1,7 @@
 import React /*{ useContext }*/ from "react";
+// import { useCallback } from "react";
 // import { DispatchContext } from "./App";
-import { TOGGLE_TODO, DELETE_TODO } from "./actions";
+import { toggleToDo, deleteToDo } from "./actions";
 import { useDispatch } from "react-redux";
 
 const ToDoList = ({ toDo }) => {
@@ -16,12 +17,12 @@ const ToDoList = ({ toDo }) => {
               <input
                 type="checkbox"
                 className="toggle"
-                onClick={() => dispatch({ type: TOGGLE_TODO, index, item })}
+                onClick={() => dispatch(toggleToDo(index, item))}
               ></input>
               <label>{toDo[index].title}</label>
               <button
                 className="destroy"
-                onClick={() => dispatch({ type: DELETE_TODO, index, item })}
+                onClick={() => dispatch(deleteToDo(index, item))}
               ></button>
             </div>
           </li>
