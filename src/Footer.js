@@ -1,9 +1,12 @@
-import React, { useContext } from "react";
-import { DispatchContext } from "./App";
+import React /*{ useContext }*/ from "react";
+// import { DispatchContext } from "./App";
 import { NavLink } from "react-router-dom";
+import { CLEAR_COMPLETED_TODOS } from "./actions";
+import { useDispatch } from "react-redux";
 
 const Footer = ({ toDo }) => {
-  const dispatch = useContext(DispatchContext);
+  // const dispatch = useContext(DispatchContext);
+  const dispatch = useDispatch();
   return (
     <React.Fragment>
       <footer className="footer">
@@ -37,7 +40,7 @@ const Footer = ({ toDo }) => {
         </ul>
         <button
           className="clear-completed"
-          onClick={() => dispatch({ type: "deleteComplete" })}
+          onClick={() => dispatch({ type: CLEAR_COMPLETED_TODOS })}
         >
           Delete Completed
         </button>

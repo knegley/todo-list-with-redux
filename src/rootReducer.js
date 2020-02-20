@@ -1,24 +1,14 @@
 import {
-  TOGGLE_TODO,
   ADD_TODO,
   CLEAR_COMPLETED_TODOS,
-  DELETE_TODO
+  DELETE_TODO,
+  TOGGLE_TODO
 } from "./actions";
-
-import React, { useContext } from "react";
-import { SetListContext } from "./App";
 
 const rootReducer = (state = [], action) => {
   switch (action.type) {
     case ADD_TODO:
-      const addedToDo = {
-        userId: 1,
-        id: Math.floor(Math.random() * 100000),
-        title: listText,
-        completed: false
-      };
-
-      return [...state, addedToDo];
+      return [...state, action.addedToDo];
 
     case DELETE_TODO:
       console.log(action.index);
