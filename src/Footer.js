@@ -40,7 +40,7 @@ const Footer = ({ toDo }) => {
         </ul>
         <button
           className="clear-completed"
-          onClick={() => dispatch(clearCompletedToDos)}
+          onClick={() => dispatch(clearCompletedToDos())}
         >
           Delete Completed
         </button>

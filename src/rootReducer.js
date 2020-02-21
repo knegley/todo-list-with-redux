@@ -1,8 +1,8 @@
 import {
   ADD_TODO,
+  TOGGLE_TODO,
   CLEAR_COMPLETED_TODOS,
-  DELETE_TODO,
-  TOGGLE_TODO
+  DELETE_TODO
 } from "./actions";
 
 const rootReducer = (state = [], action) => {
